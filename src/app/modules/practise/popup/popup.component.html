@@ -1,0 +1,116 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <div formGroupName="personalInfo">
+      <mat-form-field appearance="fill">
+        <mat-label>Sports Name</mat-label>
+        <input matInput formControlName="sportsName" placeholder="Sports Name">
+        <mat-error *ngIf="profileForm.get('personality.age').invalid && profileForm.get('personality.age').touched">
+          Sports Name is required
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Players Name</mat-label>
+        <input matInput formControlName="playersName" placeholder="Players Name">
+        <mat-error *ngIf="profileForm.get('personality.height').invalid && profileForm.get('personality.height').touched">
+       Playersname is required
+        </mat-error>
+      </mat-form-field>
+  
+      
+    </div>
+  
+    <div formGroupName="personality">
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" placeholder="Age" type="number" min="0" max="70"> <!-- Example min and max values -->
+        <mat-error *ngIf="profileForm.get('personality.age').hasError('required')">
+          Age is required
+        </mat-error>
+        <mat-error *ngIf="profileForm.get('personality.age').hasError('min')">
+          Age must be at least 0
+        </mat-error>
+        <mat-error *ngIf="profileForm.get('personality.age').hasError('max')">
+          Age must be at most 70
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Height</mat-label>
+        <input matInput formControlName="height" placeholder="Height" type="number" min="0" max="100"> <!-- Example min and max values -->
+      <mat-error *ngIf="profileForm.get('personality.height').hasError('required')">
+        Height is required
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('personality.height').hasError('min')">
+        Height must be at least 0
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('personality.height').hasError('max')">
+        Height must be at most 100
+      </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Weight</mat-label>
+        <mat-label>Weight</mat-label>
+      <input matInput formControlName="weight" placeholder="Weight" type="number" min="0" max="100"> <!-- Example min and max values -->
+      <mat-error *ngIf="profileForm.get('personality.weight').hasError('required')">
+        Weight is required
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('personality.weight').hasError('min')">
+        Weight must be at least 0
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('personality.weight').hasError('max')">
+        Weight must be at most 100
+      </mat-error>
+      </mat-form-field>
+    </div>
+  
+    <div formGroupName="participatedplayers">
+      <mat-form-field appearance="fill">
+        <mat-label>PlayersName</mat-label>
+        <input matInput formControlName="playersname" placeholder="Playersname">
+        <mat-error *ngIf="profileForm.get('participatedplayers.playersname').invalid && profileForm.get('participatedplayers.playersname').touched">
+          Playersname is required
+        </mat-error>
+        <mat-error *ngIf="profileForm.get('participatedplayers.playersname').hasError('minlength')">
+          Playersname must be at least 3 characters long
+        </mat-error>
+        <mat-error *ngIf="profileForm.get('participatedplayers.playersname').hasError('maxlength')">
+          Playersname cannot exceed 50 characters
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Firstname</mat-label>
+        <input matInput formControlName="firstname" placeholder="FirstName" minlength="3" maxlength="50">
+        <mat-error *ngIf="profileForm.get('participatedplayers.firstname').invalid && profileForm.get('participatedplayers.firstname').touched">
+          Firstname is required
+        </mat-error>
+        <mat-error *ngIf="profileForm.get('participatedplayers.firstname').hasError('minlength')">
+          Firstname must be at least 3 characters long
+        </mat-error>
+        <mat-error *ngIf="profileForm.get('participatedplayers.firstname').hasError('maxlength')">
+          Firstname cannot exceed 50 characters
+        </mat-error>
+       
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Lastname</mat-label>
+        <input matInput formControlName="lastname" placeholder="Lastname" minlength="3" maxlength="50">
+      <mat-error *ngIf="profileForm.get('participatedplayers.lastname').invalid && profileForm.get('participatedplayers.lastname').touched">
+        Lastname is required
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('participatedplayers.lastname').hasError('minlength')">
+        Lastname must be at least 3 characters long
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('participatedplayers.lastname').hasError('maxlength')">
+        Lastname cannot exceed 50 characters
+      </mat-error>
+      </mat-form-field>
+    </div>
+  
+   
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+  

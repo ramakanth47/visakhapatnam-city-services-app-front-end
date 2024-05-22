@@ -1,0 +1,73 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <h2>class Registration Form</h2>
+    
+    <!-- Personal Information -->
+    <div formGroupName="personalInfo">
+      <h3>Personal Information</h3>
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="firstName">
+        <mat-error *ngIf="firstNameFieldInvalid">First Name is required</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="lastName">
+        <mat-error *ngIf="lastNameFieldInvalid">Last Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Degree Program" formControlName="degreeProgram">
+        <mat-error *ngIf="degreeProgramFieldInvalid">Degree Program is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Present Address" formControlName="presentAddress">
+        <mat-error *ngIf="presentAddressFieldInvalid">Degree Program is required</mat-error>
+      </mat-form-field>
+
+  
+      <mat-form-field>
+        <input matInput type="number" placeholder="Age" formControlName="age">
+        <mat-error *ngIf="ageFieldInvalid">Age is required</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <!-- Academic Information -->
+    <div formGroupName="academicInfo">
+      <h3>Academic Information</h3>
+      <mat-form-field>
+        <input matInput placeholder="Grade" formControlName="grade">
+        <mat-error *ngIf="gradeFieldInvalid">Grade is required</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="GPA" formControlName="gpa">
+        <mat-error *ngIf="gpaFieldInvalid">GPA is required</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <!-- Contact Information -->
+    <div formGroupName="contactInfo">
+      <h3>Contact Information</h3>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="emailFieldInvalid">Please enter a valid email address</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+        <mat-error *ngIf="phoneNumberFieldInvalid">Please enter a valid phone number</mat-error>
+        <label for="phoneNumber">Phone Number</label>
+            <input 
+                formControlName="phone"
+                id="phone" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f.phone.touched && f.phone.invalid" class="alert alert-danger"></div>
+                <div *ngIf="f.phone.errors.required">phone Number is required.</div>
+                <div *ngIf="f.phoneNumber.errors.pattern">Please, Enter 10 digit Phone Number.</div>
+      </mat-form-field>
+    </div>
+  
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+  

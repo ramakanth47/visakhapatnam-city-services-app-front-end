@@ -1,0 +1,47 @@
+<form [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
+    <h2>Hotel Registration Form</h2>
+    
+    <!-- Personal Information -->
+    <div formGroupName="personalInfo">
+      <h3>Personal Information</h3>
+      <mat-form-field>
+        <input matInput placeholder="Guest Name" formControlName="guestName">
+        <mat-error *ngIf="guestNameFieldInvalid">guestName is required</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Contact Information" formControlName="contact Information">
+        <mat-error *ngIf="contactInformationFieldInvalid">contact Information is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Room Type" formControlName="room Type">
+        <mat-error *ngIf="roomTypeFieldInvalid">contact Information is required</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput type="number" placeholder="Age" formControlName="age">
+        <mat-error *ngIf="ageFieldInvalid">Age is required</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <!-- Academic Information -->
+   
+  
+    <!-- Contact Information -->
+    <div formGroupName="contactInfo">
+      <h3>Contact Information</h3>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="emailFieldInvalid">Please enter a valid email address</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+        <mat-error *ngIf="phoneNumberFieldInvalid">Please enter a valid phone number</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+  

@@ -1,0 +1,36 @@
+<form [formGroup]="profileForm">
+  <div formArrayName="participatedplayers">
+    <div *ngFor="let player of participatedPlayersFormArray.controls; let i = index">
+      <div [formGroupName]="i">
+        <mat-form-field appearance="fill">
+          <mat-label>Player's Name</mat-label>
+          <input matInput formControlName="playersname" placeholder="Player's Name">
+          <mat-error *ngIf="getPlayerControl(i, 'playersname').invalid && getPlayerControl(i, 'playersname').touched">
+            Player's Name is required and must be 3-16 characters long
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstname" placeholder="First Name">
+          <mat-error *ngIf="getPlayerControl(i, 'firstname').invalid && getPlayerControl(i, 'firstname').touched">
+            First Name is required and must be 3-16 characters long
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastname" placeholder="Last Name">
+          <mat-error *ngIf="getPlayerControl(i, 'lastname').invalid && getPlayerControl(i, 'lastname').touched">
+            Last Name is required and must be 3-16 characters long
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-button type="button" (click)="removePlayer(i)">Remove</button>
+      </div>
+    </div>
+  </div>
+  <button mat-button type="button" (click)="addPlayer()">Add Player</button>
+</form>
+
+
